@@ -12,9 +12,7 @@ const config: QuartzConfig = {
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
-    analytics: {
-      provider: "plausible",
-    },
+    analytics: { provider: 'google', tagId: 'G-Y75LQ4LYGG' },
     locale: "en-US",
     baseUrl: "laughtersec.github.io/htb-writeups",
     ignorePatterns: ["private", "templates", ".obsidian"],
