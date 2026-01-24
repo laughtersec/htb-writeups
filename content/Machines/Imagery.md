@@ -1,5 +1,5 @@
 ---
-{"publish":true,"created":"2025-09-28T11:05:25.855+05:30","modified":"2026-01-25T00:43:50.923+05:30","published":"2026-01-25T00:43:50.923+05:30","tags":["medium","command-injection","linux"],"cssclasses":"","api":"https://labs.hackthebox.com/achievement/machine/1454964/751"}
+{"publish":true,"created":"2025-09-28T11:05:25.855+05:30","modified":"2026-01-25T00:46:12.248+05:30","published":"2026-01-25T00:46:12.248+05:30","tags":["medium","command-injection","linux"],"cssclasses":"","api":"https://labs.hackthebox.com/achievement/machine/1454964/751"}
 ---
 
 ## Information Gathering
@@ -147,7 +147,7 @@ bash: no job control in this shell
 web@Imagery:~/web$
 ```
 
-## Privilege Escalation
+## Lateral Movement
 
 ```shell
 web@Imagery:~/web$ ./linpeas.sh
@@ -241,6 +241,8 @@ mark@Imagery:/home/web$
 ```
 
 Yes :D
+
+## Privilege Escalation
 
 ```shell
 mark@Imagery:~$ sudo -l
