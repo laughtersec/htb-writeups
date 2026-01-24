@@ -1,5 +1,5 @@
 ---
-{"publish":true,"created":"2025-09-28T11:05:25.855+05:30","modified":"2025-09-28T21:35:59.797+05:30","published":"2025-09-28T21:35:59.797+05:30","tags":["medium","command-injection","linux"],"cssclasses":"","api":"https://labs.hackthebox.com/achievement/machine/1454964/751"}
+{"publish":true,"created":"2025-09-28T11:05:25.855+05:30","modified":"2026-01-25T00:42:51.994+05:30","published":"2026-01-25T00:42:51.994+05:30","tags":["medium","command-injection","linux"],"cssclasses":"","api":"https://labs.hackthebox.com/achievement/machine/1454964/751"}
 ---
 
 ## Information Gathering
@@ -103,6 +103,7 @@ A quick search on crackstation reveals the password
 ![[Machines/png/testuser_password_imagery.png]]
 
 Don't seem to get anywhere at this point, why not login as the testuser and have a look at their gallery?
+## Lateral Movement
 
 Unlike a typical user, the testuser is able to use these features
 
