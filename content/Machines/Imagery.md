@@ -1,5 +1,5 @@
 ---
-{"publish":true,"created":"2025-09-28T11:05:25.855+05:30","modified":"2026-01-25T00:46:12.248+05:30","published":"2026-01-25T00:46:12.248+05:30","tags":["medium","command-injection","linux"],"cssclasses":"","api":"https://labs.hackthebox.com/achievement/machine/1454964/751"}
+{"publish":true,"created":"2025-09-28T11:05:25.855+05:30","modified":"2026-01-25T09:01:54.181+05:30","published":"2026-01-25T09:01:54.181+05:30","tags":["medium","command-injection","linux","xss"],"cssclasses":"","api":"https://labs.hackthebox.com/achievement/machine/1454964/751"}
 ---
 
 ## Information Gathering
